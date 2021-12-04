@@ -11,14 +11,14 @@ export function baseParse(content: string) {
 }
 
 function createParserContext(content) {
-  console.log("创建 paserContext");
+  // console.log("创建 paserContext");
   return {
     source: content,
   };
 }
 
 function parseChildren(context) {
-  console.log("开始解析 children");
+  // console.log("开始解析 children");
   const nodes: any = [];
 
   while (!isEnd(context)) {
@@ -151,7 +151,7 @@ function parseInterpolation(context: any) {
 }
 
 function parseText(context): any {
-  console.log("解析 text", context);
+  // console.log("解析 text", context);
 
   // endIndex 应该看看有没有对应的 <
   // 比如 hello</div>
@@ -176,7 +176,7 @@ function parseText(context): any {
 }
 
 function parseTextData(context: any, length: number): any {
-  console.log("解析 textData");
+  // console.log("解析 textData");
   // 1. 直接返回 context.source
   // 从 length 切的话，是为了可以获取到 text 的值（需要用一个范围来确定）
   const rawText = context.source.slice(0, length);
@@ -187,7 +187,7 @@ function parseTextData(context: any, length: number): any {
 }
 
 function advanceBy(context, numberOfCharacters) {
-  console.log("推进代码", context, numberOfCharacters);
+  // console.log("推进代码", context, numberOfCharacters);
   context.source = context.source.slice(numberOfCharacters);
 }
 

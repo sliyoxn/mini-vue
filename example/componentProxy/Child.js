@@ -1,24 +1,26 @@
-import { h, ref, reactive } from "../../lib/mini-vue.esm.js";
+import {h, ref, reactive} from "../../lib/mini-vue.esm.js";
+
 export default {
-  name: "Child",
-  setup(props, { emit }) {},
-  render(proxy) {
-    const self = this
-    return h("div", {}, [
-      h(
-        "button",
-        {
-          onClick() {
-            console.log(proxy);
-            console.log("click");
-            proxy.$emit("change", "aaa", "bbbb");
-            // 使用 this
-            console.log(this)
-            self.$emit("change", "ccc", "ddd");
-          },
-        },
-        "emit"
-      ),
-    ]);
-  },
+    name: "Child",
+    setup(props, {emit}) {
+    },
+    render(proxy) {
+        const self = this
+        return h("div", {}, [
+            h(
+                "button",
+                {
+                    onClick() {
+                        console.log(proxy);
+                        console.log("click");
+                        proxy.$emit("change", "aaa", "bbbb");
+                        // 使用 this
+                        console.log(this)
+                        self.$emit("change", "ccc", "ddd");
+                    },
+                },
+                "emit"
+            ),
+        ]);
+    },
 };

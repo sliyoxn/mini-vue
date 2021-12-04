@@ -53,12 +53,13 @@ export function setupComponent(instance) {
 function setupStatefulComponent(instance) {
   // todo
   // 1. 先创建代理 proxy
-  console.log("创建 proxy");
+  // console.log("创建 proxy");
 
   // proxy 对象其实是代理了 instance.ctx 对象
   // 我们在使用的时候需要使用 instance.proxy 对象
   // 因为 instance.ctx 在 prod 和 dev 坏境下是不同的
-  instance.proxy = new Proxy(instance.ctx, PublicInstanceProxyHandlers);
+  // SakuraSnow's Cover
+  instance.proxy = new Proxy(instance.ctx, <any>PublicInstanceProxyHandlers);
   // 用户声明的对象就是 instance.type
   // const Component = {setup(),render()} ....
   const Component = instance.type;
@@ -86,7 +87,7 @@ function setupStatefulComponent(instance) {
 }
 
 function createSetupContext(instance) {
-  console.log("初始化 setup context");
+  // console.log("初始化 setup context");
   return {
     attrs: instance.attrs,
     slots: instance.slots,

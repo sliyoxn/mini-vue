@@ -1,5 +1,5 @@
-import { h } from "../../lib/mini-vue.esm.js";
-import { ref } from "../../lib/mini-vue.esm.js";
+import {h} from "../../lib/mini-vue.esm.js";
+import {ref} from "../../lib/mini-vue.esm.js";
 
 const isChange = ref(false);
 // 默认是顺序不变，新旧节点的数量不变，属性不变
@@ -101,31 +101,31 @@ const isChange = ref(false);
 // 移动元素位置（ anchor 没有值的情况下 ）
 // 要移动的元素是属于最后一个位置
 const prevChildren = [
-  h("div", { key: "a", id: "old-a" }, "a"),
-  h("div", { key: "b", id: "old-b" }, "b"),
+    h("div", {key: "a", id: "old-a"}, "a"),
+    h("div", {key: "b", id: "old-b"}, "b"),
 ];
 const nextChildren = [
-  h("div", { key: "b", id: "old-b" }, "b"),
-  h("div", { key: "a", id: "old-a" }, "a"),
+    h("div", {key: "b", id: "old-b"}, "b"),
+    h("div", {key: "a", id: "old-a"}, "a"),
 ];
 
-        
 
 export default {
-  name: "PatchChildren",
-  setup() {},
-  render() {
-    return h("div", {}, [
-      h(
-        "button",
-        {
-          onClick: () => {
-            isChange.value = !isChange.value;
-          },
-        },
-        "测试子组件之间的 patch 逻辑"
-      ),
-      h("children", {}, isChange.value === true ? nextChildren : prevChildren),
-    ]);
-  },
+    name: "PatchChildren",
+    setup() {
+    },
+    render() {
+        return h("div", {}, [
+            h(
+                "button",
+                {
+                    onClick: () => {
+                        isChange.value = !isChange.value;
+                    },
+                },
+                "测试子组件之间的 patch 逻辑"
+            ),
+            h("children", {}, isChange.value === true ? nextChildren : prevChildren),
+        ]);
+    },
 };
