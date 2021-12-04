@@ -16,7 +16,7 @@ export const PublicInstanceProxyHandlers = {
     // 这里就匹配一下看看是否有对应的 function
     // 有的话就直接调用这个 function
     const { setupState, props } = instance;
-    console.log(`触发 proxy hook , key -> : ${key}`);
+    // console.log(`触发 proxy hook , key -> : ${key}`);
 
     if (key !== "$") {
       // 说明不是访问 public api
